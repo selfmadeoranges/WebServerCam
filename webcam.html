@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Cam Video</title>
+    <link rel="stylesheet" href="./stylesheets/main.css">
+</head>
+<body>
+    <video id="video" width="320" height="240" autoplay></video>
+    <script>
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            var video = document.getElementById('video');
+            video.srcObject = stream;
+            video.play();
+        });
+    }
+    </script>
+</body>
+</html>
